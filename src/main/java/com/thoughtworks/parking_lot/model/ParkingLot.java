@@ -15,18 +15,13 @@ public class ParkingLot {
     private String name;
 
     @Min(0)
-    private Long capacity;
+    private Integer capacity;
 
     private String location;
 
     public ParkingLot() {
     }
 
-    public ParkingLot(String name, @Max(0) Long capacity, String location) {
-        this.name = name;
-        this.capacity = capacity;
-        this.location = location;
-    }
 
     public Long getId() {
         return id;
@@ -44,11 +39,11 @@ public class ParkingLot {
         this.name = name;
     }
 
-    public Long getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(Long capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 

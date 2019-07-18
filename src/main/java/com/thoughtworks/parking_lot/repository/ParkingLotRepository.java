@@ -4,4 +4,7 @@ import com.thoughtworks.parking_lot.model.ParkingLot;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ParkingLotRepository extends JpaRepository<ParkingLot,Long> {
+
+     ParkingLot findByName(String name);
+
 }
