@@ -29,4 +29,14 @@ public class ParkingLotController {
     public List<ParkingLot> viewParkingLotPaging(@RequestParam int pageNum) {
         return parkingLotService.getParkingLotsPaging(pageNum);
     }
+
+    @GetMapping("/{id}")
+    public ParkingLot viewParkingLot(@PathVariable Long id) {
+        return parkingLotService.getParkingLot(id);
+    }
+
+    @PutMapping
+    public ParkingLot updateParkingLot(@RequestBody ParkingLot parkingLot) {
+        return parkingLotService.updateParkingLot(parkingLot);
+    }
 }

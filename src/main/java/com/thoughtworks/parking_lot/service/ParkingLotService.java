@@ -29,4 +29,11 @@ public class ParkingLotService {
 
     }
 
+    public ParkingLot getParkingLot(Long id) {
+        return parkingLotRepository.findById(id).orElse(null);
+    }
+
+    public ParkingLot updateParkingLot(ParkingLot parkingLot) {
+        return parkingLotRepository.saveAndFlush(parkingLot);
+    }
 }
