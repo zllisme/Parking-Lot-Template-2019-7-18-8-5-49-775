@@ -24,14 +24,12 @@ public class OrderService {
             return null;
         }
         return orderRepository.saveAndFlush(order);
+
     }
 
     private boolean isHasValidPosstion(String parkingLotName) {
         boolean result = true;
         ParkingLot parkingLot = parkingLotRepository.findByName(parkingLotName);
-        if(parkingLot == null){
-            System.out.println("parking lot is null!");
-        }
         List<Order> sameParkingLotOrders = orderRepository.findAllByParkingLotName(parkingLotName);
         int occupiedPosition = sameParkingLotOrders.size();
         int validPosition = parkingLot.getCapacity() - occupiedPosition;
