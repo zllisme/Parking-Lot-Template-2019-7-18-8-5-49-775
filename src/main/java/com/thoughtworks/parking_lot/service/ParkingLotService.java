@@ -5,11 +5,15 @@ import com.thoughtworks.parking_lot.repository.ParkingLotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ParkingLotService {
 
     @Autowired
     ParkingLotRepository parkingLotRepository;
+
+    private final static int PAGE_SIZE = 15;
 
     public ParkingLot addParkingLot(ParkingLot parkingLot) {
         return parkingLotRepository.saveAndFlush(parkingLot);
@@ -17,6 +21,12 @@ public class ParkingLotService {
 
     public void deleteParkingLot(Long id) {
         parkingLotRepository.deleteById(id);
+    }
+
+    public List<ParkingLot> getParkingLotsPaging(int pageNum) {
+        return parkingLotRepository.findAll().subList((pageNum-1) * PAGE_SIZE, pageNum * PAGE_SIZE);
+
+
     }
 
 }

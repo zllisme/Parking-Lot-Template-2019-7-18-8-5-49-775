@@ -5,6 +5,8 @@ import com.thoughtworks.parking_lot.service.ParkingLotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/parkingLots")
@@ -21,5 +23,10 @@ public class ParkingLotController {
     @DeleteMapping("/{id}")
     public void DeleteParkingLot(@PathVariable Long id) {
          parkingLotService.deleteParkingLot(id);
+    }
+
+    @GetMapping
+    public List<ParkingLot> viewParkingLotPaging(@RequestParam int pageNum) {
+        return parkingLotService.getParkingLotsPaging(pageNum);
     }
 }
