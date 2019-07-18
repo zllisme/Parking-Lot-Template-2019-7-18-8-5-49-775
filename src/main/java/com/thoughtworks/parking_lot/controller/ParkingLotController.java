@@ -14,7 +14,12 @@ public class ParkingLotController {
     ParkingLotService parkingLotService;
 
     @PostMapping
-    ParkingLot addParkingLot(@RequestBody ParkingLot parkingLot) {
+    public ParkingLot addParkingLot(@RequestBody ParkingLot parkingLot) {
         return parkingLotService.addParkingLot(parkingLot);
+    }
+
+    @DeleteMapping("/{id}")
+    public void DeleteParkingLot(@PathVariable Long id) {
+         parkingLotService.deleteParkingLot(id);
     }
 }

@@ -14,4 +14,9 @@ public class ParkingLotService {
     public ParkingLot addParkingLot(ParkingLot parkingLot) {
         return parkingLotRepository.saveAndFlush(parkingLot);
     }
+
+    public void deleteParkingLot(Long id) {
+        parkingLotRepository.deleteById(id);
+    }
+
 }
