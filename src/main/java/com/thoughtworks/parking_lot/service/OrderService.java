@@ -46,6 +46,6 @@ public class OrderService {
         }
         existedOrder.setEndTime(order.getEndTime());
         existedOrder.setState(false);
-        return existedOrder;
+        return orderRepository.saveAndFlush(existedOrder);
     }
 }
