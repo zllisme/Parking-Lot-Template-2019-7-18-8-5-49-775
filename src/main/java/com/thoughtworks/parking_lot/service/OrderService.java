@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
@@ -19,7 +20,7 @@ public class OrderService {
     ParkingLotRepository parkingLotRepository;
 
     public Order createOrder(Order order) {
-        if(!isHasValidPosstion(order.getParkingLotName())){
+        if(!isHasValidPosition(order.getParkingLotName())){
             System.out.println("no position!");
             return null;
         }
@@ -27,11 +28,12 @@ public class OrderService {
 
     }
 
-    private boolean isHasValidPosstion(String parkingLotName) {
+    private boolean isHasValidPosition(String parkingLotName) {
         boolean result = true;
         ParkingLot parkingLot = parkingLotRepository.findByName(parkingLotName);
         List<Order> sameParkingLotOrders = orderRepository.findAllByParkingLotName(parkingLotName);
-        int occupiedPosition = sameParkingLotOrders.size();
+        List<Order> validOrders = sameParkingLotOrders.stream().filter(o -> o.getState()).collect(Collectors.toList());
+        int occupiedPosition = validOrders.size();
         int validPosition = parkingLot.getCapacity() - occupiedPosition;
         if(validPosition == 0) {
             result = false;

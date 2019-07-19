@@ -21,12 +21,10 @@ public class Order {
     @Column(name="plate_number")
     private String plateNumber;
 
-   // @Temporal(TemporalType.TIME)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name="create_time")
     private Date createTime;
 
-   // @Temporal(TemporalType.TIME)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name="end_time")
     private Date endTime;
