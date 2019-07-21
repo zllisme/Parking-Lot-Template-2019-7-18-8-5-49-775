@@ -32,7 +32,7 @@ public class OrderService {
         boolean result = true;
         ParkingLot parkingLot = parkingLotRepository.findByName(parkingLotName);
         List<Order> sameParkingLotOrders = orderRepository.findAllByParkingLotName(parkingLotName);
-        List<Order> validOrders = sameParkingLotOrders.stream().filter(o -> o.getState()).collect(Collectors.toList());
+        List<Order> validOrders = sameParkingLotOrders.stream().filter(Order::getState).collect(Collectors.toList());
         int occupiedPosition = validOrders.size();
         int validPosition = parkingLot.getCapacity() - occupiedPosition;
         if(validPosition == 0) {

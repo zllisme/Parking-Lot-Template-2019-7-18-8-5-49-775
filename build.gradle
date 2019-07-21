@@ -2,6 +2,13 @@ plugins {
     id 'org.springframework.boot' version '2.1.6.RELEASE'
     id 'java'
     id 'idea'
+    id "org.flywaydb.flyway" version "5.2.4"
+}
+
+
+flyway {
+    url = 'jdbc:h2:file:./h2/org'
+    user = 'sa'
 }
 
 apply plugin: 'io.spring.dependency-management'

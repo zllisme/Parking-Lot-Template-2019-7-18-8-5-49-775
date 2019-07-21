@@ -568,3 +568,12 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/JavaWorkS
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
 	... 89 more
+2019-07-21 11:50:32 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DESC[*] ORDER_FORM "; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+desc order_form [42001-199]
+2019-07-21 11:50:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DESC[*] ORDER_FORM "; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+desc order_form [42001-199]
+2019-07-21 11:50:37 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DESC[*] ORDER_FORM "; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+desc order_form [42001-199]
